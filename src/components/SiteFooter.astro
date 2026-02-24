@@ -1,0 +1,97 @@
+---
+const columns = [
+	{
+		title: 'À propos',
+		links: ['Manifeste', 'Crédits', 'Mentions'],
+	},
+	{
+		title: 'Explorer',
+		links: ['Archives', 'Tags', 'Galerie'],
+	},
+	{
+		title: 'Contact',
+		links: ['Newsletter', 'Collaborations', 'Me retrouver'],
+	},
+];
+---
+
+<footer class="footer" aria-label="Pied de page">
+	<div class="footerInner">
+		<div class="footerGrid">
+			{columns.map((c) => (
+				<section class="col" aria-label={c.title}>
+					<h3 class="colTitle">{c.title}</h3>
+					<ul class="colList">
+						{c.links.map((label) => (
+							<li><a class="colLink" href="#">{label}</a></li>
+						))}
+					</ul>
+				</section>
+			))}
+		</div>
+
+		<p class="legal">© {new Date().getFullYear()} Dog in a Shell — Coquilles et Curiosités</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		margin-top: 20px;
+		padding: 18px 0 8px;
+		border-top: 1px solid rgba(59, 43, 42, 0.12);
+	}
+
+	.footerInner {
+		padding: 0 6px;
+	}
+
+	.footerGrid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+
+	.colTitle {
+		margin: 0 0 10px;
+		font-family: Fraunces, ui-serif, Georgia, serif;
+		font-weight: 800;
+		font-size: 14px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(59, 43, 42, 0.7);
+	}
+
+	.colList {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 8px;
+	}
+
+	.colLink {
+		color: rgba(59, 43, 42, 0.72);
+		font-weight: 700;
+		font-size: 13px;
+	}
+
+	.colLink:hover {
+		color: rgba(59, 43, 42, 0.92);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.legal {
+		margin: 18px 0 0;
+		text-align: center;
+		font-size: 12px;
+		color: rgba(59, 43, 42, 0.55);
+	}
+
+	@media (max-width: 720px) {
+		.footerGrid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+

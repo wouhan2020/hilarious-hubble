@@ -1,0 +1,141 @@
+---
+const paragraphs = [
+	"Je partage ici des trouvailles, des photos et des petites histoires — un carnet de curiosités à feuilleter doucement.",
+	"Coquilles, textures, nature, objets minuscules… J’aime quand c’est imparfait, vivant et un peu magique.",
+];
+---
+
+<section class="intro" aria-label="Présentation">
+	<div class="introTop">
+		<span class="pill">
+			<span aria-hidden="true">🫧</span>
+			<span>Bienvenue sur Dog in a Shell, un univers d’observation & de rêve.</span>
+		</span>
+	</div>
+
+	<div class="logo" aria-hidden="true">
+		<svg viewBox="0 0 260 220" role="presentation">
+			<defs>
+				<linearGradient id="p" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0" stop-color="#e57f84" />
+					<stop offset="1" stop-color="#f0b5b8" />
+				</linearGradient>
+			</defs>
+			<g fill="none" stroke="rgba(59, 43, 42, 0.26)" stroke-width="3" stroke-linecap="round">
+				<path d="M78 122c-18-20-22-52 2-75 25-23 56-10 64 18 10-28 41-41 66-18 24 23 20 55 2 75-22 25-54 35-68 38-15-3-46-13-68-38Z" />
+				<path d="M90 120c12-12 26-18 40-18 14 0 28 6 40 18" />
+				<path d="M124 108c-4-8-8-18-6-28 2-12 10-22 22-22 12 0 20 10 22 22 2 10-2 20-6 28" />
+			</g>
+			<g fill="url(#p)" opacity="0.92">
+				<path d="M46 76c-10-18-30-30-44-34 10 14 18 36 20 52 10-6 18-10 24-18Z" />
+				<path d="M214 76c10-18 30-30 44-34-10 14-18 36-20 52-10-6-18-10-24-18Z" />
+			</g>
+			<g fill="#88b5a2" opacity="0.85">
+				<circle cx="128" cy="176" r="6" />
+				<circle cx="110" cy="186" r="5" />
+				<circle cx="146" cy="186" r="5" />
+			</g>
+			<text x="130" y="212" text-anchor="middle" font-family="Nunito, system-ui, sans-serif" font-size="14" fill="rgba(59, 43, 42, 0.65)" letter-spacing="2">
+				DOG IN A SHELL
+			</text>
+		</svg>
+	</div>
+
+	<div class="introText">
+		{paragraphs.map((p) => (
+			<p>{p}</p>
+		))}
+	</div>
+
+	<div class="divider" aria-hidden="true"></div>
+
+	<div class="social" aria-label="Réseaux">
+		<a class="socialLink" href="#" aria-label="Instagram">
+			<svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+				<path
+					fill="currentColor"
+					d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.6-2.25a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"
+				/>
+			</svg>
+			<span>Instagram</span>
+		</a>
+		<a class="socialLink" href="#" aria-label="Facebook">
+			<svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+				<path
+					fill="currentColor"
+					d="M13.5 22v-8h3l.5-4h-3.5V7.5c0-1.2.4-2 2.1-2H17V2.1c-.6-.1-1.9-.2-3.4-.2-3.4 0-5.6 2-5.6 5.9V10H5v4h3v8h5.5Z"
+				/>
+			</svg>
+			<span>Facebook</span>
+		</a>
+	</div>
+</section>
+
+<style>
+	.intro {
+		padding: 10px 0 18px;
+	}
+
+	.introTop {
+		display: grid;
+		place-items: center;
+		margin: 6px 0 14px;
+	}
+
+	.logo {
+		display: grid;
+		place-items: center;
+		margin: 10px 0 8px;
+	}
+
+	.logo svg {
+		width: min(260px, 70vw);
+		height: auto;
+	}
+
+	.introText {
+		text-align: center;
+		max-width: 64ch;
+		margin: 0 auto;
+		color: rgba(59, 43, 42, 0.72);
+	}
+
+	.introText p {
+		margin: 10px 0;
+		font-size: 15px;
+	}
+
+	.social {
+		display: flex;
+		justify-content: center;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+
+	.socialLink {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 12px;
+		border-radius: 14px;
+		background: rgba(255, 255, 255, 0.35);
+		border: 1px solid rgba(59, 43, 42, 0.12);
+		color: rgba(59, 43, 42, 0.78);
+		font-weight: 700;
+		font-size: 13px;
+		transition:
+			transform 160ms ease,
+			background 160ms ease;
+	}
+
+	.socialLink:hover {
+		transform: translateY(-1px);
+		background: rgba(255, 255, 255, 0.55);
+	}
+
+	.socialLink svg {
+		width: 18px;
+		height: 18px;
+	}
+</style>
+

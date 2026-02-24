@@ -1,0 +1,87 @@
+---
+type Item = {
+	title: string;
+	href: string;
+};
+
+const items: Item[] = [
+	{ title: 'Photo 1', href: '#' },
+	{ title: 'Photo 2', href: '#' },
+	{ title: 'Photo 3', href: '#' },
+	{ title: 'Photo 4', href: '#' },
+	{ title: 'Photo 5', href: '#' },
+	{ title: 'Photo 6', href: '#' },
+	{ title: 'Photo 7', href: '#' },
+	{ title: 'Photo 8', href: '#' },
+	{ title: 'Photo 9', href: '#' },
+];
+---
+
+<section class="latest" aria-label="Dernières parutions">
+	<h2 class="sectionTitle">Dernières parutions</h2>
+	<div class="grid">
+		{items.map((it, idx) => (
+			<a class="card" href={it.href} aria-label={it.title}>
+				<div class="thumb" aria-hidden="true">
+					<svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice">
+						<defs>
+							<linearGradient id={`lg-${idx}`} x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0" stop-color="#88b5a2" />
+								<stop offset="0.55" stop-color="#cfe6da" />
+								<stop offset="1" stop-color="#f1b6b0" />
+							</linearGradient>
+						</defs>
+						<rect width="400" height="520" fill={`url(#lg-${idx})`} />
+						<g opacity="0.22" fill="#2f3a2f">
+							<circle cx="120" cy="210" r="90" />
+							<circle cx="240" cy="260" r="120" />
+							<circle cx="310" cy="170" r="70" />
+						</g>
+					</svg>
+				</div>
+				<div class="caption">{it.title}</div>
+			</a>
+		))}
+	</div>
+</section>
+
+<style>
+	.latest {
+		padding: 14px 0 10px;
+	}
+
+	.card {
+		border-radius: 18px;
+		overflow: hidden;
+		border: 1px solid rgba(59, 43, 42, 0.12);
+		background: rgba(255, 255, 255, 0.28);
+		transition:
+			transform 160ms ease,
+			box-shadow 160ms ease,
+			background 160ms ease;
+	}
+
+	.card:hover {
+		transform: translateY(-2px);
+		background: rgba(255, 255, 255, 0.42);
+		box-shadow: 0 10px 24px rgba(59, 43, 42, 0.12);
+	}
+
+	.thumb svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 400 / 520;
+	}
+
+	.caption {
+		text-align: center;
+		padding: 10px 10px 12px;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		font-size: 11px;
+		color: rgba(59, 43, 42, 0.7);
+	}
+</style>
+
